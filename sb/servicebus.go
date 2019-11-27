@@ -66,6 +66,7 @@ func Consumer(connectionString, topic, subscription string, timeout time.Duratio
 
 func msgHandler(ctx context.Context, msg *servicebus.Message) error {
 	log.Println("message received")
+	log.Print("data size:  ", len(msg.Data))
 	log.Printf("msg:  %+v", msg)
 	return msg.Complete(ctx)
 }
